@@ -9,7 +9,7 @@
 
     insights.userMetrics = store.get('userData').userMetrics;
 
-    insights.currentCorrelationData = store.get('currentCorrelationData') || [{'Null': 'null'}];
+    insights.currentCorrelationData = [{'Null': 'null'}];
 
     insights.getCorrelations = function(selection) {
       var profile = store.get('userData');
@@ -20,20 +20,18 @@
             email: profile.email,
             datums: selection
           }
-        }).then(function success(resp){
-          console.table(resp.data)
-        }, function error(resp){
-          console.log("Error!", resp)
-          alert('Sorry, there was an error adding your datums')
-      })
+        })
+      .then(function(response){
+          return response.data
+        })
     }
 
     insights.submitSelection = function(selection) {
       insights.getCorrelations(selection)
-      .then(function(dataArr){
-        console.log('This is the correl data', dataArr)
-          store.set('currentCorrelationData', dataArr);
-          insights.currentCorrelationData = store.get('dataArr');
+      .then(function(returnedData){
+        console.log('This is the correl data', returnedData)
+          store.set('currentCorrelationData', returnedData);
+          insights.currentCorrelationData = returnedData;
       })
       .catch(function(err){
         console.log("There was an error getting your correlations friendo!", err);
