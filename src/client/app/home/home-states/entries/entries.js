@@ -125,12 +125,6 @@
         console.log("Post Success! " + entries.activeField, resp)
         return Home.getUserData();
       }).then(function() {
-        $timeout(function() {
-          $scope.$apply(function(){
-            entries.userActivities = store.get('userData').userActivities;
-            entries.userMetrics = store.get('userData').userMetrics;
-          })           
-        })
         entries.popularAct = entries.sortKeys(store.get('userData').popularItems.act);
       }).then(function() {
         entries.popularMet = entries.sortKeys(store.get('userData').popularItems.met);
