@@ -24,14 +24,11 @@
             .then(function (profile) {
               store.set('profile', profile);
               store.set('token', idToken);
-              $location.path('/home')
             }).then(function () {
               // Gets the user's data from the database and stores it on the window
               return Home.getUserData();
             });
-          // Sends the user here after login
-          // $location.path('/home');
-          // $rootScope.$broadcast('SuccessfulLogIn', [1,2,3]);
+          $location.path('/home')
         }
       ]);
 

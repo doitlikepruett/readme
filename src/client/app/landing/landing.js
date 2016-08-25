@@ -7,11 +7,6 @@
     // jshint validthis: true
     var landing = this;
     landing.auth = auth;
-
-    // $scope.$on('SuccessfulLogIn', function(event, mass){
-    //   console.log('alndingCtrl')
-    //   $location.path('/home');
-    // })
   }
 
   function Auth (auth, $location) {
