@@ -11,6 +11,8 @@
 
     home.userName;
 
+    home.userDate = new Date();
+
     // home.userNameGetter = function(){
     //   var userData = store.get('userData');
     //   var profile = store.get('profile');
